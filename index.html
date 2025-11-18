@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        nav a:nth-child(1) {
+            background: rgba(196, 69, 105, 0.15);
+            color: #e57a95;
+            border: 2px solid rgba(196, 69, 105, 0.3);
+        }
+
+        nav a:nth-child(1):hover {
+            border-color: #c44569;
+            box-shadow: 0 5px 15px rgba(196, 69, 105, 0.3);
+        }
+
+        nav a:nth-child(1)::before {
+            background: rgba(196, 69, 105, 0.2);
+        }
+
+        nav a:nth-child(2) {
+            background: rgba(111, 181, 125, 0.15);
+            color: #7ec98f;
+            border: 2px solid rgba(111, 181, 125, 0.3);
+        }
+
+        nav a:nth-child(2):hover {
+            border-color: #6fb57d;
+            box-shadow: 0 5px 15px rgba(111, 181, 125, 0.3);
+        }
+
+        nav a:nth-child(2)::before {
+            background: rgba(111, 181, 125, 0.2);
+        }
+
+        nav a:nth-child(3) {
+            background: rgba(107, 159, 216, 0.15);
+            color: #7eafe6;
+            border: 2px solid rgba(107, 159, 216, 0.3);
+        }
+
+        nav a:nth-child(3):hover {
+            border-color: #6b9fd8;
+            box-shadow: 0 5px 15px rgba(107, 159, 216, 0.3);
+        }
+
+        nav a:nth-child(3)::before {
+            background: rgba(107, 159, 216, 0.2);
+        }
+
+        nav a:nth-child(4) {
+            background: rgba(218, 165, 105, 0.15);
+            color: #d9a967;
+            border: 2px solid rgba(218, 165, 105, 0.3);
+        }
+
+        nav a:nth-child(4):hover {
+            border-color: #d4a574;
+            box-shadow: 0 5px 15px rgba(218, 165, 105, 0.3);
+        }
+
+        nav a:nth-child(4)::before {
+            background: rgba(218, 165, 105, 0.2);
+        }
+
+        nav a {
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.3s;
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+        }
+
+        .intro {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            border-left: 4px solid #888;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .intro p {
+            margin-bottom: 25px;
+            color: #d4d4d4;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+            .intro {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>pradhyun maddi</h1>
+        
+        <nav>
+            <a href="writings.html">writings</a>
+            <a href="making.html">making</a>
+            <a href="learning.html">learning</a>
+            <a href="shelf.html">shelf</a>
+        </nav>
+
+        <div class="intro">
+            <p>i think through making. ideas become real when embodied in code, sound, or visual form. constraints force creativity. different processing styles lead to different solutions.</p>
+            
+            <p>what's here: philosophical explorations through game design (spin, wind). research on how AI disrupts career pathways and how democracies survive existential crises. music as pattern recognition—piano and guitar learned by ear, extended through improvisation. the wild middle podcast on neurodivergent experiences. teenbud, an app solving executive function challenges. digital art built from markup tools. ongoing questions about embodiment, presence, and consciousness.</p>
+        </div>
+
+        <footer>
+            <p>hyderabad · <a href="/cdn-cgi/l/email-protection#e2929083868a9b978c8f8386868bd3d0d1a2858f838b8ecc818d8f">email</a> · <a href="https://github.com/pradhyunmaddi134">github</a> · <a href="https://thewildmiddlepod.com">podcast</a><
