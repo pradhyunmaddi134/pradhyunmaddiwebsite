@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>writings · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            color: #e57a95;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 50px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #c44569;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+        }
+
+        .section-description {
+            color: #e57a95;
+            margin-bottom: 60px;
+            font-size: 1.05rem;
+        }
+
+        .series-header {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(196, 69, 105, 0.1);
+            border-left: 4px solid #e57a95;
+            border-radius: 4px;
+        }
+
+        .series-title {
+            font-size: 1.3rem;
+            color: #e57a95;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .series-description {
+            color: #c4c4c4;
+            font-size: 0.95rem;
+        }
+
+        .writing-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .writing-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #c44569;
+            transform: scaleY(0);
+            transition: transform 0.4s;
+        }
+
+        .writing-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .writing-item:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(196, 69, 105, 0.2);
+        }
+
+        .writing-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .writing-title a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .writing-title a:hover {
+            color: #e57a95;
+        }
+
+        .writing-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .writing-meta .tag {
+            color: #e57a95;
+            margin-right: 10px;
+        }
+
+        .writing-preview {
+            color: #c4c4c4;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .writing-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">home</a>
+        
+        <h1>writings</h1>
+        <p class="section-description">thoughts uncovering themselves</p>
+
+        <!-- STANDALONE ESSAYS -->
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="filling-in-ones-shoes.html">filling in one's shoes</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">identity</span> <span class="tag">growth</span>
+            </div>
+            <div class="writing-preview">
+                the phrase has always intrigued me. it can mean stepping into someone else's place, but on a more personal level, it can also mean filling into your own shoes—rising to meet your own expectations and learning to live comfortably within that identity.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="contradictions.html">contradictions</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">neurodivergence</span> <span class="tag">embodiment</span>
+            </div>
+            <div class="writing-preview">
+                precise mind, clumsy body. drawing borders, believing in none. compliant outwardly, resistant inside. craving overwhelm, overwhelmed by it. i don't reconcile these. they coexist.
+            </div>
+        </div>
+
+        <!-- SERIES: Oblivity -->
+        <div class="series-header" style="margin-top: 80px;">
+            <div class="series-title">oblivity: a three-part series</div>
+            <div class="series-description">on showing up imperfect, stepping into discomfort, and the protective obliviousness that lets me keep going</div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="oblivity-prologue.html">prologue</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">series introduction</span>
+            </div>
+            <div class="writing-preview">
+                this is a series about showing up imperfect. not as a philosophy i developed, but as a way of being i've stumbled into. an invitation to start before you're ready.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="bekhauf-fearless.html">part 1: bekhauf (fearless)</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">oblivity</span> <span class="tag">growth</span>
+            </div>
+            <div class="writing-preview">
+                the charity show was called bekhauf—fearless. but i wasn't fearless. fear just attaches to different things for me. questioning authority, performing in a language i didn't speak, negotiating space as an outsider.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="stepping-into-discomfort.html">part 2: stepping into discomfort</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">oblivity</span> <span class="tag">experience</span>
+            </div>
+            <div class="writing-preview">
+                i kept choosing situations that made me uncomfortable. school trips without devices, marketing to strangers, demonstrating products at career fairs. not because i enjoyed discomfort, but because i wanted something on the other side of it.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="showing-up-always-anyways.html">part 3: showing up always, anyways</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">oblivity</span> <span class="tag">persistence</span>
+            </div>
+            <div class="writing-preview">
+                the first podcast episodes were rough. i published them anyway. teaching at a government school felt uncertain. i kept showing up. putting creative work out there takes courage. i did it regardless. this is what i've learned.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="oblivity-epilogue.html">epilogue</a>
+            </div>
+            <div class="writing-meta">
+                nov 2025 · <span class="tag">series conclusion</span>
+            </div>
+            <div class="writing-preview">
+                i wish i could tell my sister—and anyone else who's waiting—that it's okay if someone finds you imperfect. the world doesn't need more perfect things. it needs more people willing to try, fail, adjust, and try again.
+            </div>
+        </div>
+
+        <!-- BOOK REVIEWS -->
+        <div class="series-header" style="margin-top: 80px;">
+            <div class="series-title">book reviews</div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="thinking-fast-and-slow.html">thinking, fast and slow</a>
+            </div>
+            <div class="writing-meta">
+                may 2024 · <span class="tag">review</span> <span class="tag">psychology</span>
+            </div>
+            <div class="writing-preview">
+                a sweltering afternoon. carpool ride. my friend talked about investing, believing in destiny and prospect. a sentence broke in from memory: "if you choose to delude yourself by accepting extreme predictions..." this is how i came back to kahneman's book.
+            </div>
+        </div>
+
+        <div class="writing-item">
+            <div class="writing-title">
+                <a href="when-breath-becomes-air.html">when breath becomes air</a>
+            </div>
+            <div class="writing-meta">
+                dec 2023 · <span class="tag">review</span> <span class="tag">mortality</span>
+            </div>
+            <div class="writing-preview">
+                death and life are the two poles we exist between. paul kalanithi's situation was a unique blend: certain death, but time to reconcile. he accepted his fate with grace, courage, and wisdom. this is what makes the book remarkable.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
