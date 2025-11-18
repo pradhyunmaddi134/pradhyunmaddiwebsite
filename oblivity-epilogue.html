@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>epilogue · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #e57a95;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #c44569;
+            transform: translateX(-5px);
+        }
+
+        article {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 8px;
+            border-left: 4px solid #c44569;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .article-meta .tag {
+            color: #e57a95;
+            margin-left: 15px;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            color: #d4d4d4;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            article {
+                padding: 30px 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="writings.html" class="back-link">writings</a>
+        
+        <article>
+            <h1>epilogue</h1>
+            
+            <div class="article-meta">
+                november 2025 · <span class="tag">series conclusion</span>
+            </div>
+
+            <div class="article-content">
+                <p>I wish I could tell my sister—and my neurotypical friends, and anyone else who's waiting—that it's okay if someone finds you imperfect. It's okay not to conform to standards that don't fit. It's okay to refuse compliance when compliance feels like fraud, absurdity, or plain stupidity. Ask the question, even if it rattles the room. You're not breaking anything; you're testing what's real.</p>
+
+                <p>I don't go around looking for conflict. It's just my disposition. I'm built with enough head space to step into the uncomfortable, the unfamiliar, the uncertain—and stay there long enough to learn. What reads as indifference is often oblivity: a kind of protective obliviousness that keeps me from absorbing other people's panic. It lets me move forward when the script says freeze.</p>
+
+                <p>I know that isn't everyone's default. It just happens to be mine. And in a world that rewards performance over pattern, that oblivity becomes a gift. It keeps me honest. It keeps me curious. It lets me grow.</p>
+
+                <p>But this isn't just about me. It's about what becomes possible when more people feel free to show up messy, iterate openly, and persevere through discomfort. When perfectionism stops being a prerequisite and becomes optional. When learning in public is normalized instead of stigmatized.</p>
+
+                <p>The world doesn't need more perfect things. It needs more people willing to try, fail, adjust, and try again. It needs voices that haven't been refined into performance. It needs work that's alive, not polished to death.</p>
+
+                <p>I envision freedom for all of us. Not the freedom to be perfect, but the freedom to be imperfect and keep going anyway. To release the expectation that you must be ready before you start. To enjoy the work for what it is, not what it should be.</p>
+
+                <p>That's the invitation. That's the wish.</p>
+
+                <p>Show up. Always, anyways.</p>
+
+            </div>
+        </article>
+    </div>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learning · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a2d2d 50%, #1a1a2d 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #7eafe6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #6b9fd8;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .page-description {
+            font-family: 'Courier New', monospace;
+            color: #7eafe6;
+            margin-bottom: 60px;
+            font-size: 1rem;
+        }
+
+        .section-header {
+            font-size: 1.8rem;
+            color: #7eafe6;
+            margin-bottom: 30px;
+            margin-top: 60px;
+            font-weight: normal;
+            border-bottom: 2px solid rgba(126, 175, 230, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .work-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .work-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+            border-left: 4px solid #7eafe6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            border-left-color: #6b9fd8;
+            box-shadow: 0 15px 40px rgba(126, 175, 230, 0.2);
+        }
+
+        .work-meta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #7eafe6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .work-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .work-details {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .work-description {
+            color: #d4d4d4;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .work-link {
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            color: #7eafe6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .work-link::after {
+            content: ' →';
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .work-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        .work-link:hover {
+            color: #6b9fd8;
+        }
+
+        .placeholder {
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section-header {
+                font-size: 1.5rem;
+            }
+            .work-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">home</a>
+        
+        <h1>learning</h1>
+        <p class="page-description">experiments · explorations · academic writing · research</p>
+
+        <h2 class="section-header">Research & Publications</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-meta">Published Research · Open Access</div>
+                <div class="work-title">Visualizing Careers in Flux: Making Sense of AI's Disruption of Work and College Pathways</div>
+                <div class="work-details">Published on Zenodo (March 2025) · ~4,800 words · Mixed-methods study</div>
+                <div class="work-description">
+                    <strong>Motivation:</strong> Watching AI compose music, solve Olympiad questions, ace every test, and deliver a variety of work with little effort made me ponder: what kind of learning and work awaits us?
+                    <br><br>
+                    <strong>Process:</strong> Many conversations about AI, deep reading on its inner workings through academic papers and podcasts revealed a disconnect—people's experiences varied wildly from what research suggested. A systematic survey became the answer to objectively understand AI's real-world impact across geographies, job functions, and industries. Designing, testing, and distributing the survey required persistence and reaching out extensively for serious responses. I'm indebted to parents, teachers, and friends who helped socialize it.
+                    <br><br>
+                    <strong>Takeaway:</strong> Correlating AI impact reports, understanding AI capabilities and limitations, and analyzing survey responses revealed genuine disruption and redefinition. The uncertainty is both challenging and opportunistic. It requires acknowledging that definite paths will change, college planning must account for AI disrupting entry-level careers, and skills/competencies are being redrawn. This is a decent attempt to decode a very important, less-explored topic. For me, it's been incredibly helpful—I'm now making choices based on what interests me and where I thrive, applying my core strengths in my college planning journey. I don't have all answers yet, but this work provides a map through the noise.
+                </div>
+                <a href="https://zenodo.org/" class="work-link" target="_blank">View on Zenodo</a>
+            </div>
+
+            <div class="work-card">
+                <div class="work-meta">Submitted to The Concord Review · Under Review</div>
+                <div class="work-title">Democracy at the Extremes: Institutional Responses to Foundational Crises</div>
+                <div class="work-details">Submitted October 2025 · ~16,000 words · Comparative historical analysis</div>
+                <div class="work-description">
+                    India and the United States represent two of the world's most significant democracies—together home to over a billion people and critical experiments in self-governance for humanity. As a history buff, I found comparative analysis fascinating: a method to understand how different institutional designs respond to existential threats. Through this work, I came to understand much about people, societies, and the context for their actions and leanings. Above all, I discovered hope in the strength and promise of democracy—it is self-sustaining and progressive.
+                    <br><br>
+                    As an Indian American, this effort connected me with both countries in ways I didn't anticipate. The research examines how India (1947–1952) and the United States (1787–1791; 1850–1877) survived existential shocks using opposite constitutional strategies—India's dispersed, negotiation-heavy design versus America's concentrated, action-oriented system. These choices created durable trade-offs: India's plural architecture slowed sweeping change but made reversal hard; the U.S. model enabled rapid Civil War/Reconstruction action yet proved fragile when federal will waned in 1877. The claim is that democracies endure by design rather than luck, and each design still echoes today.
+                </div>
+                <div class="work-link" style="color: #888; cursor: default;">Full text unavailable (under review)</div>
+            </div>
+        </div>
+
+        <h2 class="section-header">Academic Writing</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-meta">AP World History · Long Essay Question</div>
+                <div class="work-title">The Extent of Asia's Transformation Through Anti-Imperialist Movements (1900–Present)</div>
+                <div class="work-details">2024 · Historical analysis</div>
+                <div class="work-description">
+                    Analysis of how anti-imperialist movements transformed Asia politically, socially, and culturally after 1900. Examines the collapse of colonial empires, emergence of independent nation-states, and the varying degrees of transformation across regions—from profound changes in India and China to ongoing struggles with neocolonial dependency and authoritarianism.
+                </div>
+                <a href="leq-asia.html" class="work-link">Read essay</a>
+            </div>
+
+            <div class="work-card">
+                <div class="work-meta">Book Review · 10th Grade Project</div>
+                <div class="work-title">Gandhi's Experiments with Truth: A Review</div>
+                <div class="work-details">2023 · Literary analysis · "My Experiments with Truth" by M.K. Gandhi</div>
+                <div class="work-description">
+                    Comprehensive review exploring Gandhi's autobiography as a vivid series of anecdotes detailing his successes and failures. Analyzes his development from childhood through the South African years to leading the Indian Independence Movement. Examines his philosophy of satyagraha, religious plurality, and the evolution of his personal moral compass through honest self-reflection.
+                </div>
+                <a href="gandhi-review.html" class="work-link">Read review</a>
+            </div>
+        </div>
+
+        <h2 class="section-header">Experiments & Explorations</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-meta">Physics Experiment · Minecraft Modding</div>
+                <div class="work-title">Gravity, Embodiment, and Presence: A Minecraft Experiment</div>
+                <div class="work-details">2023 · Game physics exploration</div>
+                <div class="work-description">
+                    What began as curiosity quickly became a study of how fundamental forces shape our relationship to virtual worlds and perhaps to reality itself. Using a gravity mod in Minecraft, I explored how altered gravitational conditions transformed gameplay, spatial reasoning, and sense of presence. High gravity made building deliberate and grounded; low gravity turned movement into chaotic ballet; reversed gravity created genuine existential disorientation. The experiment revealed that design thrives on invisible compromises, constraint gives meaning to action, and gravity—both literal and metaphorical—keeps us connected to our world.
+                </div>
+                <a href="minecraft-gravity.html" class="work-link">Read full writeup</a>
+            </div>
+
+            <div class="work-card placeholder">
+                <div class="work-meta">Coming Soon</div>
+                <div class="work-title">Superconductors & Quantum Computing</div>
+                <div class="work-details">In progress</div>
+                <div class="work-description">
+                    Exploration of superconductor physics and applications in quantum computing. Content being polished.
+                </div>
+            </div>
+
+            <div class="work-card placeholder">
+                <div class="work-meta">Coming Soon</div>
+                <div class="work-title">AI & Computing Explorations</div>
+                <div class="work-details">In progress</div>
+                <div class="work-description">
+                    Additional explorations in artificial intelligence and computing. Content being organized.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
