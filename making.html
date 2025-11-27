@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>making · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a2d1a 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            color: #a8d5a8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 50px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #4ecca3;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+        }
+
+        .section-description {
+            color: #a8d5a8;
+            margin-bottom: 60px;
+            font-size: 1.05rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff6b6b;
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,107,107,0.1) 0%, rgba(168,213,168,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .project-card:hover .project-image::after {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-type {
+            font-size: 0.75rem;
+            color: #a8d5a8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .project-description {
+            color: #c4c4c4;
+            margin-bottom: 18px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .project-link {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .project-link::after {
+            content: ' →';
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        .project-link:hover {
+            color: #ff8787;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">home</a>
+        
+        <h1>making</h1>
+        <p class="section-description">things i've built while figuring things out</p>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">[game visual]</div>
+                <div class="project-content">
+                    <div class="project-type">game · in progress</div>
+                    <div class="project-title">spin</div>
+                    <div class="project-description">
+                        a movement-action game where rotation generates power. spinning builds energy that fuels running, jumping, and attacking. manage momentum and dizziness while moving through a world shaped by torque and flow.
+                    </div>
+                    <a href="spin-game.html" class="project-link">read the philosophy</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[wind visual]</div>
+                <div class="project-content">
+                    <div class="project-type">game · concept</div>
+                    <div class="project-title">wind</div>
+                    <div class="project-description">
+                        an exploration of invisible forces through movement. the player is carried, coaxed, and resisted by currents. every tilt and pause becomes a quiet dialogue between self and unseen force.
+                    </div>
+                    <a href="wind-game.html" class="project-link">read the story</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[pixelated art]</div>
+                <div class="project-content">
+                    <div class="project-type">visual art</div>
+                    <div class="project-title">digital markup art</div>
+                    <div class="project-description">
+                        pixelated compositions made with mac markup tool at extreme zoom. working with motor skill constraints to create through layered digital edits. hand, fish, sunflowers—organic forms built from geometric blocks.
+                    </div>
+                    <a href="visual-art.html" class="project-link">view gallery</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[podcast artwork]</div>
+                <div class="project-content">
+                    <div class="project-type">podcast</div>
+                    <div class="project-title">the wild middle</div>
+                    <div class="project-description">
+                        conversations about being neurodivergent in school transitions. student and educator perspectives on the messy middle of growing up different.
+                    </div>
+                    <a href="https://thewildmiddlepod.com" class="project-link">listen</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[app interface]</div>
+                <div class="project-content">
+                    <div class="project-type">app · ai</div>
+                    <div class="project-title">teenbud</div>
+                    <div class="project-description">
+                        executive function app for neurodivergent teens. focuses on task initiation and working memory rather than just motivation. built with 100+ teen interviews.
+                    </div>
+                    <a href="http://www.pradhyunmaddi.com/teenbud" class="project-link">read more</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[neurobridge interface]</div>
+                <div class="project-content">
+                    <div class="project-type">research · web</div>
+                    <div class="project-title">neurobridge</div>
+                    <div class="project-description">
+                        multilingual resource hub for neurodivergent immigrant families. stanford snp-reach program. ai-assisted translation + accessible design.
+                    </div>
+                    <a href="https://shei-fengniao.my.canva.site/neurobridge-website" class="project-link">explore</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[waveform/music visual]</div>
+                <div class="project-content">
+                    <div class="project-type">music</div>
+                    <div class="project-title">compositions</div>
+                    <div class="project-description">
+                        piano and guitar learned by ear through pattern recognition. improvisations, mashups, covers. co-founded school bands that raised ₹1.5 lakh for charity.
+                    </div>
+                    <a href="music.html" class="project-link">listen</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">[game screenshot]</div>
+                <div class="project-content">
+                    <div class="project-type">hackathon · app</div>
+                    <div class="project-title">taletime</div>
+                    <div class="project-description">
+                        interactive storytelling app that turns children's imaginative stories into illustrated audiobooks. developed as a team for epson hackathon—won 2nd place.
+                    </div>
+                    <a href="https://www.taletime.app" class="project-link">visit site</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

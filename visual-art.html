@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visual art · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #e57a95;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #c44569;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .page-description {
+            font-family: 'Courier New', monospace;
+            color: #e57a95;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .artist-statement {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+            border-left: 4px solid #e57a95;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .artist-statement h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #e57a95;
+            font-weight: normal;
+        }
+
+        .artist-statement p {
+            margin-bottom: 20px;
+            color: #d4d4d4;
+            font-size: 1.05rem;
+        }
+
+        .artist-statement p:last-child {
+            margin-bottom: 0;
+        }
+
+        .gallery {
+            display: grid;
+            gap: 50px;
+        }
+
+        .artwork {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .artwork:hover {
+            transform: translateY(-5px);
+            border-color: #e57a95;
+            box-shadow: 0 15px 40px rgba(229, 122, 149, 0.2);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #000;
+        }
+
+        .artwork-info {
+            padding: 25px 30px;
+        }
+
+        .artwork-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .artwork-description {
+            color: #c4c4c4;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .artist-statement {
+                padding: 25px;
+            }
+            .artwork-info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="making.html" class="back-link">making</a>
+        
+        <h1>visual art</h1>
+        <p class="page-description">pixelated compositions · digital markup explorations · 2024-2025</p>
+
+        <div class="artist-statement">
+            <h2>my take on art</h2>
+            <p>Art has never come naturally to me. When I try to draw a line on paper, it comes out swiggly, scraggled—every nook and bend a deviation from my original intention, made unintelligible by my poor motor skills. I tried in vain to learn art on physical surfaces a few years ago. I eventually accepted that failure, but the desire to give real shape to the mental representations in my mind never ceased.</p>
+            
+            <p>On my laptop, I often used the markup tool to highlight, circle, make notes. These became what I used to create moving borders on climate maps, imagining them as nations fighting to subjugate the planet under one climate. Hitting ctrl+Z could reverse all of this, leading to the fall, the reverse conquest of an empire that had previously risen to continental or global dominance. Using the tool at such a zoomed-in level made the changes pixelated, blurring into existing colors in a matrix that seemed at once glitchy and beautiful.</p>
+            
+            <p>On my Mac, I zoom all the way into a background image, then activate markup—this creates the pixelated style. You have to go through multiple edits of the same thing to get it right because you can't draw over previous markups. I find it fun, though, like crafting something piece by piece, working with the tiniest fragments of an image to assemble a whole.</p>
+            
+            <p>The pixelation comes from being so zoomed in. Every stroke feels like carving a little chunk of reality from the digital ether, like a sculptor shaping a statue from a block of pixelated stone. Every layer overlaps, each step adding unique texture, leaving trails of jagged edges and blocky patterns that reveal their true nature only when you zoom out. It's like weaving pieces of something larger, giving it structure while knowing it's made from the smallest details.</p>
+            
+            <p>Unlike traditional drawing where lines flow smoothly, this feels like stacking bits of chaos and order in tight, limited space—each edit building on the last, creating an abstract but beautiful mess. It reminds me of how nature itself seems pixelated up close, like zooming in on a flower petal or leaf and seeing individual cells, each part of a greater design.</p>
+            
+            <p>In the end, it's all about the imperfections: the way pixels get slightly misaligned, the way one mark bleeds into another, and how the whole becomes something I never could have planned perfectly. I realize my "failure" with traditional art wasn't failure at all—it's just a different process, one that works through digital exploration rather than brushstrokes.</p>
+        </div>
+
+        <div class="gallery">
+            <div class="artwork">
+                <img src="handvisualart_3.png" alt="Reaching Hand in Space" class="artwork-image">
+                <div class="artwork-info">
+                    <div class="artwork-title">reaching hand in space</div>
+                    <div class="artwork-description">
+                        A pixelated hand/arm extending toward a small creature that is, as it turns out, the origin of the large arm—scaled and rotated against a starry void. Explores themes of connection, scale, and digital isolation. The hand seems to rise from the dead, reaching toward the splotches of the background.
+                    </div>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <img src="visualart2.JPG" alt="Pixelated Fish" class="artwork-image">
+                <div class="artwork-info">
+                    <div class="artwork-title">fish</div>
+                    <div class="artwork-description">
+                        The first of the pixelated sketches. Experimentation mostly with texture—the red surface appears rough given the art style. The stripes and eyes are additional details that help identify the subject while blending with other aspects of the fish's skin. Evokes an aura of nostalgia, perhaps harking back to old Pokémon games and creepypasta mythos.
+                    </div>
+                </div>
+            </div>
+
+            <div class="artwork">
+                <img src="boquetofflowers_visualart.png" alt="Pixelated Sunflowers" class="artwork-image">
+                <div class="artwork-info">
+                    <div class="artwork-title">pixelated sunflowers</div>
+                    <div class="artwork-description">
+                        Sunflowers with void centers and layered stems, showing accumulated markup creating organic forms from geometric blocks. The flowers coalesce into one large, leafy organism with smaller versions growing as nodes. The impression is one of claustrophobia—an organism showing immense growth in a world where nothing else exists besides it. Scaling techniques used to fullest extent with focus on arrangement and multiplicity.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

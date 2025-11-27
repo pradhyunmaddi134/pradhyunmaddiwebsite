@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shelf · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d1a 50%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #f4d03f;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .page-description {
+            color: #999;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+            font-style: italic;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #333;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab:hover {
+            color: #d4af37;
+        }
+
+        .tab.active {
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Items */
+        .item {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 3px solid #d4af37;
+            transition: all 0.3s;
+        }
+
+        .item:hover {
+            transform: translateX(5px);
+            border-left-color: #f4d03f;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .item-meta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .item-description {
+            color: #c4c4c4;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .item-why {
+            color: #d4d4d4;
+            font-size: 1rem;
+            line-height: 1.7;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .item-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .item-link:hover {
+            color: #f4d03f;
+        }
+
+        .item-link::after {
+            content: ' →';
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .item {
+                padding: 25px 20px;
+            }
+            .tabs {
+                gap: 5px;
+            }
+            .tab {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">home</a>
+        
+        <h1>shelf</h1>
+        <p class="page-description">things I've found worth keeping around</p>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab active" onclick="openTab('books')">Books</button>
+            <button class="tab" onclick="openTab('youtube')">YouTube Channels & Videos</button>
+            <button class="tab" onclick="openTab('podcasts')">Podcasts</button>
+            <button class="tab" onclick="openTab('courses')">Courses</button>
+            <button class="tab" onclick="openTab('music')">Music</button>
+        </div>
+
+        <!-- BOOKS TAB -->
+        <div id="books" class="tab-content active">
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Letters to a Young Poet</div>
+                    <div class="item-meta">Rainer Maria Rilke</div>
+                </div>
+                <div class="item-description">
+                    Ten letters from Rilke to an aspiring poet, offering wisdom on solitude, creativity, love, and finding one's path.
+                </div>
+                <div class="item-why">
+                    My mom really liked this book, she recommended it to me and so I went right in. I loved how emergent of a character it has. It is not a pre-planned treatise, but rather musings conceived in conversation, universal teachings enclosed inside the fabric and circumstances of a letter and a receiver. Rilke wrote as though he had figured it all out, as though he was the mature and realized poet he strived to be.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">The Philosophy of Redemption</div>
+                    <div class="item-meta">Philipp Mainländer</div>
+                </div>
+                <div class="item-description">
+                    A philosophical work exploring redemption through the lens of post-Schopenhauerian pessimism.
+                </div>
+                <div class="item-why">
+                    Mainländer frames his book as the culmination of the works of Kant and Schopenhauer, two of the greatest German philosophers. His work is tragically compelling, presenting a vision of a universe where God had already died and all growth stems from this point of destruction. It is also scientifically predictive, aligning with the Big Bang hypothesis which came half-a-century after the book's initial publication, and the demise of its author.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Wonder</div>
+                    <div class="item-meta">R.J. Palacio</div>
+                </div>
+                <div class="item-description">
+                    The story of Auggie Pullman, a boy with facial differences navigating school and finding acceptance.
+                </div>
+                <div class="item-why">
+                    I enjoyed reading this book a lot as a kid. Even now, when I remember it exists and go through its pages again, the multiplicity and intricacy of its narrative structure never fail to intrigue me. The characters are all written with grace, showing not only the point of view of the protagonist but also of those who happen to cross paths with him in some way. These prisms are beautiful in their own right, and illuminate the protagonist's journey in their own light.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Notes from Underground</div>
+                    <div class="item-meta">Fyodor Dostoevsky</div>
+                </div>
+                <div class="item-description">
+                    The confession of a bitter, isolated narrator examining consciousness, free will, and human irrationality.
+                </div>
+                <div class="item-why">
+                    I found this book quite predictive of modern day society, even though Dostoevsky was writing this from the perspective of the social outcasts of his time. He seems to have touched upon the archetypal themes of isolation; its causes and effects, and the mechanisms that prolong its condition. Natural dispositions, societal malaise and shallowness, and the continual honing of personal thoughts, positions and feelings that intensify so much that the only way they can be expressed is in outbursts of rage, inappropriate to the original situation and context.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Molecules</div>
+                    <div class="item-meta">Theodore Gray</div>
+                </div>
+                <div class="item-description">
+                    A visual exploration of the molecular world, showing how elements combine to form the substances that make up our world.
+                </div>
+                <div class="item-why">
+                    There's an earlier book in the series known as Elements that I've never got my hands on. Nonetheless, Molecules was the perfect introduction to the larger world of chemistry; I had already memorized all of the elements, their groups and properties, and wanted to know how they'd combine. Each chapter opened up a whole new world of possibility.
+                </div>
+            </div>
+
+            <!-- Add more books as you discover them -->
+        </div>
+
+        <!-- YOUTUBE TAB -->
+        <div id="youtube" class="tab-content">
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">[Channel or Video Title]</div>
+                    <div class="item-meta">[Creator]</div>
+                </div>
+                <div class="item-description">
+                    [What the channel/video is about]
+                </div>
+                <div class="item-why">
+                    [Why you watch it / what you get from it]
+                </div>
+                <a href="[youtube link]" class="item-link">watch</a>
+            </div>
+
+            <!-- Add more channels/videos -->
+        </div>
+
+        <!-- PODCASTS TAB -->
+        <div id="podcasts" class="tab-content">
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">[Podcast Title]</div>
+                    <div class="item-meta">[Host/Network]</div>
+                </div>
+                <div class="item-description">
+                    [What the podcast covers]
+                </div>
+                <div class="item-why">
+                    [Why you listen / what you get from it]
+                </div>
+                <a href="[podcast link]" class="item-link">listen</a>
+            </div>
+
+            <!-- Add more podcasts -->
+        </div>
+
+        <!-- COURSES TAB -->
+        <div id="courses" class="tab-content">
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">[Course Title]</div>
+                    <div class="item-meta">[Platform/Instructor]</div>
+                </div>
+                <div class="item-description">
+                    [What the course covers]
+                </div>
+                <div class="item-why">
+                    [What you learned / why you recommend it]
+                </div>
+                <a href="[course link]" class="item-link">learn more</a>
+            </div>
+
+            <!-- Add more courses -->
+        </div>
+
+        <!-- MUSIC TAB -->
+        <div id="music" class="tab-content">
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Leaves Turn Inside You</div>
+                    <div class="item-meta">Unwound · 2001 · Post-Hardcore/Punk</div>
+                </div>
+                <div class="item-description">
+                    A sprawling double album by Unwound, blending post-hardcore intensity with experimental soundscapes.
+                </div>
+                <div class="item-why">
+                    Best punk band ever.
+                </div>
+            </div>
+
+            <!-- Add more music -->
+        </div>
+
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Mark selected tab as active
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

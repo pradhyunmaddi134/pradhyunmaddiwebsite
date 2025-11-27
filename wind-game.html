@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wind · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a2d 0%, #1a2d2d 50%, #2d2d1a 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #a8d5a8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #4ecca3;
+            transform: translateX(-5px);
+        }
+
+        article {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 8px;
+            border-left: 4px solid #a8d5a8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+
+        .game-label {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #a8d5a8;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .game-subtitle {
+            font-size: 1.3rem;
+            color: #a8d5a8;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            font-size: 1.1rem;
+            color: #d4d4d4;
+        }
+
+        .content p {
+            margin-bottom: 25px;
+        }
+
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            article {
+                padding: 30px 25px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .game-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="making.html" class="back-link">making</a>
+        
+        <article>
+            <div class="game-label">Game Concept · In Development</div>
+            <h1>wind</h1>
+            <p class="game-subtitle">an exploration of invisible forces through movement</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/xdlSVKPH-rM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="content">
+                <p style="font-size:0.95rem; color:#aaa; font-style:italic; margin-bottom:35px;">A little film and a few thoughts on how boredom, movement, and wind shaped this game.</p>
+
+                <p><strong>Creator's Note</strong></p>
+
+                <p>After the lockdown ended and I was caught in the busy whirlwind of high school, my interests drifted away from game development. A new computer meant much of my old work couldn't be transferred easily; soon it all felt dated and cumbersome to manage. I left behind Spin—a whole world of plans and promises fading quietly into the past.</p>
+
+                <p>Then came a kind of boredom I'd never known before. My days were filled with restrictions: what I could browse, what I could do, where I could go. Studying took up the empty hours, and though it improved my grades, it didn't fill the quiet. I felt encased—like wearing chainmail that protected me, but also pressed close against my skin. I looked for escape wherever I could find it, but nothing really broke the stillness.</p>
+
+                <p>Over time, that stillness turned into a strange muse. Since I couldn't explore outward, I started to explore inward. I went on long walks—through the park, down empty corridors, between classes—letting my mind drift. I noticed the way movement itself carried meaning: how throwing my hands down while jumping echoed a bird's wings, how every motion hinted at some hidden energy inside all things. In the valley between those peaks of curiosity and excitement, I began tending a small inner garden.</p>
+
+                <p>Movement kept returning—the rhythm of walking, of air, of falling leaves and wind. I began to find beauty in being carried around by something unseen. I'd catch the cold currents that came in winter and monsoon, bringing rain and sudden change. Those long, quiet years of boredom settled in me, aging into something rich and alive.</p>
+
+                <p>Fast forward: three years and one board exam later. Having gathered what I'd grown, I felt ready to climb again—to make something new. At my new school, I found time and space to reflect, to think, to build without rushing. It was there that I started Wind.</p>
+
+                <p>In Wind, the player is carried, coaxed, and sometimes resisted by invisible currents—gentle one moment, insistent the next. The wind seems to know what the player wants: whether to yield to it or to fight it. Every tilt, every pause, every small shift becomes a quiet dialogue between the self and this unseen force. Even the camera feels like it's being pushed and angled by the air, never fully in your control.</p>
+
+                <p>Beneath you lies a pixelated, endless ground—deliberately plain, almost oppressive. Its monotony isn't accidental; it's there to make the air above feel alive. The world repeats and repeats until the smallest deviation—a change in angle, a different horizon line—starts to matter. To rise above that static sameness is to rediscover what it means to move, to be moved. You begin to read the wind like a language—to anticipate, to listen, to surrender and assert in rhythm.</p>
+
+                <p>I wanted Wind to feel elemental. The small thrill of release, the subtle joy of leaning into something invisible, the meditative patience that boredom once taught me—all of that found a home here. Each gust and lull is a chance to feel a kind of personal freedom again. To move through space and thought with quiet wonder.</p>
+
+                <p>Wind is where intention meets flow—where the world, even pixelated and endless, feels alive beneath the invisible dance of air.</p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

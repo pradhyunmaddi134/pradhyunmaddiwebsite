@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music · pradhyun maddi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a2d 0%, #2d1a2d 50%, #1a1a2d 100%);
+            color: #e8e8e8;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-link {
+            font-family: 'Courier New', monospace;
+            color: #b19cd9;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .back-link:hover {
+            color: #9b7fc9;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        .page-description {
+            font-family: 'Courier New', monospace;
+            color: #b19cd9;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #b19cd9;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #b19cd9;
+            font-weight: normal;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            color: #d4d4d4;
+            font-size: 1.05rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .featured-video {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .featured-video:hover {
+            transform: translateY(-5px);
+            border-color: #b19cd9;
+            box-shadow: 0 15px 40px rgba(177, 156, 217, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info {
+            padding: 25px 30px;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .video-meta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b19cd9;
+            margin-bottom: 12px;
+        }
+
+        .video-description {
+            color: #c4c4c4;
+            font-size: 1rem;
+        }
+
+        .playlist {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #b19cd9;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .playlist h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #b19cd9;
+            font-weight: normal;
+        }
+
+        .playlist-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .playlist-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .playlist-item-title {
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .playlist-item-meta {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b19cd9;
+            margin-bottom: 8px;
+        }
+
+        .playlist-item-description {
+            color: #c4c4c4;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .playlist-item-link {
+            font-family: 'Courier New', monospace;
+            color: #b19cd9;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .playlist-item-link:hover {
+            color: #9b7fc9;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 25px;
+            }
+            .playlist {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="making.html" class="back-link">making</a>
+        
+        <h1>music</h1>
+        <p class="page-description">piano · guitar · improvisation & covers · 2013–2025</p>
+
+        <div class="section">
+            <h2>philosophy</h2>
+            <p>Sound has always affected me more intensely and unpredictably than most people. I'm hypersensitive to even the smallest noises and find it difficult to hear anyone else in a party if there's loud music being played. This doesn't mean that I shy away from intensity though; I seek out beautiful, loud auditory sensations that hit me in just the right way, ones that make my head buzz and lead to an elevation of the mind.</p>
+            
+            <p>I can imagine and conceptualize the meaning of songs I listen to, both from their written content and the progression of the music, and these allow me to see the connections between them and how they can be used—in a music video, an event, a mashup. I treat sounds like objects I can move, stack, and recombine. Playing is just an extension of listening: I'm manipulating internal sensory objects until they resolve into something coherent.</p>
+            
+            <p>Naturally, one cannot have a greater appreciation for music without first knowing its inner structure, and I'm fortunate to have had such experiences when I was young.</p>
+        </div>
+
+        <div class="section">
+            <h2>playlist</h2>
+            <p>The pieces below show different aspects of how I work with music: improvisations that extend existing pieces, songs learned entirely by ear, covers learned from sheet music, and mashups where I hold multiple pieces in mind simultaneously to find where they interlock. Most are self-taught through pattern recognition and iterative experimentation.</p>
+        </div>
+
+        <div class="featured-video">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_io3WeWcmO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <div class="video-title">"When the Sun Hits" by Slowdive</div>
+                <div class="video-meta">Guitar Cover</div>
+                <div class="video-description">Guitar cover of Slowdive's shoegaze classic, capturing the atmospheric texture and layered sound of the original.</div>
+            </div>
+        </div>
+
+        <div class="playlist">
+            <h2>additional performances</h2>
+
+            <!-- Atmospheric / Expressive Peak -->
+            <div class="playlist-item">
+                <div class="playlist-item-title">"Basement" by Covet</div>
+                <div class="playlist-item-meta">Guitar Cover · 0:48</div>
+                <div class="playlist-item-description">Math-rock instrumental learned by ear, focusing on clarity of tapping patterns and rhythmic precision.</div>
+                <a href="https://youtu.be/73F6eECB57s" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">Fingerstyle Guitar Cover</div>
+                <div class="playlist-item-meta">Guitar · 4 Chords</div>
+                <div class="playlist-item-description">Fingerstyle guitar cover featuring 4 chords.</div>
+                <a href="https://youtube.com/shorts/3diXbIyiXCw" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">"Everlong" by Foo Fighters (Intro)</div>
+                <div class="playlist-item-meta">Acoustic Guitar Cover</div>
+                <div class="playlist-item-description">Acoustic guitar cover of Everlong by the Foo Fighters, featuring the intro.</div>
+                <a href="https://youtube.com/shorts/VfT1OZX5amQ" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <!-- Interpretations & Adaptations -->
+            <div class="playlist-item">
+                <div class="playlist-item-title">"Enter Sandman" by Metallica</div>
+                <div class="playlist-item-meta">Piano Adaptation · 1:12</div>
+                <div class="playlist-item-description">Metal anthem translated to piano, using instrument's range to suggest guitar riffs, bass, and vocal lines in single part.</div>
+                <a href="https://youtu.be/upIaVESV-J4" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">Piano Arrangement – Hindi Film Theme</div>
+                <div class="playlist-item-meta">Piano · 1:26</div>
+                <div class="playlist-item-description">Bollywood classic reworked for solo piano, showing cross-cultural range and attention to phrasing.</div>
+                <a href="https://youtu.be/MaT4PuKr0uY" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">"Primavera"</div>
+                <div class="playlist-item-meta">Solo Performance · Piano</div>
+                <div class="playlist-item-description">Lyrical, flowing piece learned by ear and shaped around dynamics and touch.</div>
+                <a href="https://youtu.be/UojCfiT_MeM" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <!-- Improvisation & Creative Reconstruction -->
+            <div class="playlist-item">
+                <div class="playlist-item-title">Super Smash Bros. Melee Theme</div>
+                <div class="playlist-item-meta">Improvisation · Piano · 1:37</div>
+                <div class="playlist-item-description">Starts as faithful rendition, shifts into improvisation—treating original harmony as canvas for new melodic lines in real time.</div>
+                <a href="https://youtu.be/Ss77RmOMqOk" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">Duvet × New Earth Mashup</div>
+                <div class="playlist-item-meta">Piano · Harmonic Exploration</div>
+                <div class="playlist-item-description">Mashup of "Duvet" by Boa and "New Earth" by Nathaniel Hess. Held both pieces in mind simultaneously and found where harmonic progressions interlock.</div>
+                <a href="https://youtu.be/vwUPyeTRt4k" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <div class="playlist-item">
+                <div class="playlist-item-title">Birthday Performance for My Mother</div>
+                <div class="playlist-item-meta">Mashup · Piano & Production · 3:42</div>
+                <div class="playlist-item-description">Original mashup of Super Smash Bros. Melee opening theme with contemporary electronic elements—built by ear and layered to merge game music with emotional arc.</div>
+                <a href="https://youtu.be/PmLrA2jCdBQ" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+
+            <!-- Origin Point -->
+            <div class="playlist-item">
+                <div class="playlist-item-title">Piano Recital (Age 10)</div>
+                <div class="playlist-item-meta">Piano · FCSN</div>
+                <div class="playlist-item-description">Recital program featuring "Waltzing Elephants" by James Bastien and the main theme from Beethoven's Symphony No. 6, "Pastoral," performed at Friends of Children with Special Needs (FCSN) in the Bay Area.</div>
+                <a href="https://youtu.be/KZiwnWN-25I" class="playlist-item-link" target="_blank">Watch on YouTube →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>current activity</h2>
+            <p>Music became social when school reopened after lockdown. I co-founded and coordinate two school bands—one at my previous school (FKS) and now at Rockwell—handling rehearsal scheduling, arrangement decisions, and piano/guitar performance. We've grown from 3 to 8 members and performed charity shows raising ₹1.5 lakh (~$1,800). At Rockwell, this work is part of my CAS (Creativity, Activity, Service), focused on both performance and creative experimentation. The collaboration deepened music for me—weeks of practice with my band created satisfaction in shared musical creation that individual practice never could.</p>
+        </div>
+
+        <div class="section">
+            <h2>learning journey</h2>
+            <p>The first instrument I learned to play and the one that I know the best is the keyboard. Starting with routine drills and exercises, I soon grew tired of the monotony and went on to challenge myself through learning songs that were far beyond my level of expertise at the time. This actually helped me grow more, since the extra challenge meant I was more motivated to grow and develop in a more multidimensional and accelerated way. Piano is a very interesting instrument for me and I like that it gives me the ability to play both the melody and harmony at the same time. It's a great capacity to have and it's also nice to have control of the whole piece—it feels like you are the conductor of a one-piece orchestra. As the first instrument I had, it was also extremely helpful in remedying some difficulties I had with fine motor skills; my fingers became more flexible and precise in their movements.</p>
+
+            <p>I started piano around age 5, with photographic memory and fascination for symbols but struggling with fine motor coordination and rhythm. My mom came to classes initially for a few months to help with the fine motor mechanics until it became muscle memory. From ages 6-10, I learned with a volunteer tutor at Friends of Children with Special Needs (FCSN) in the Bay Area—the only service I availed as a special-needs student. My tutor's commitment and patience inspired my own teaching work later.</p>
+
+            <p>From about 11 to present, I ventured into Carnatic classical music (which I'd also learned earlier at 5 and again at 9-10 for a year or two), then Hindustani classical music. It was always about finding expression for the inner music yearning through these tools, but the focus was never to master the tools themselves. I engaged with full focus with whatever I learned, but it was not focused toward music exam milestones and stage performance.</p>
+
+            <p>During lockdown, it was all about intense learning of songs that came to me as I listened—Für Elise, Moonlight Sonata, and more. I taught myself pieces by listening repeatedly and rebuilding them from memory. My "Duvet × New Earth" mashup demonstrates this process: I held both pieces in my mind simultaneously and found where their harmonic progressions could interlock, creating something new from existing patterns.</p>
+
+            <p>Nonetheless, piano was not enough for me. Inspired to play the rock and metal music I was into at the time, I picked up the guitar in 2023. Here I faced a unique challenge where it was a struggle to play a single note. I had to practice for quite some time before my fingers got the callouses necessary to hold the string down without getting pierced by pain. I already knew the fundamentals of music theory, but it was a new challenge to maintain the coordination and finger dexterity required to play the guitar. The guitar also appeared to be a far more natural instrument than the electronic keyboard I grew accustomed to. Though I could not manipulate it to produce the same variety in soundfonts as the keyboard, it was nonetheless more authentic to hold on to and I could tap, scratch and feel around the instrument to get new sounds and vibrations that reverberated through my inner core.</p>
+
+            <p>My learning, my process, and connection with music evolved and deepened as I moved through different phases of my life; it's deliberately not a typical music learning trajectory.</p>
+        </div>
+
+        <div class="section">
+            <h2>forward</h2>
+            <p>Going forward, I expect my path to stay nonlinear: I'll keep following the inner sound first, and use whatever tools—piano, guitar, voice, production, or band work—help me express it. I enjoy the process, the practice, the performance—each throws its own challenges that I continue to solve. I look forward to how it evolves.</p>
+        </div>
+    </div>
+</body>
+</html>
